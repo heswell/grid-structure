@@ -1,0 +1,28 @@
+#toolbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 32px;
+  display: flex;
+  align-content: center;
+}
+
+#toolbar button {
+  width: 150px;
+  margin: 0 3px;
+  background: white;
+  -webkit-appearance: inherit;
+  display: flex;
+  align-items: center;
+  height: 30px;
+  padding: 0 6px;
+  outline: none;
+}
+
+.tick {
+  font-size: 24px;
+  line-height: 30px;
+  color: green;
+  margin-left: auto;
+}
