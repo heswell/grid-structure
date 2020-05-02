@@ -12,6 +12,9 @@ const [
   fixedContentElement,
   scrollableContentElement
 ] = document.querySelectorAll(".canvas-content");
+const scrollableHeaderElement = document.querySelector(
+  ".header-container .scrollable.Header"
+);
 
 let gridScrollingX = false;
 let viewportScrolling = false;
@@ -34,8 +37,8 @@ const handleButton2Click = ev => {
 };
 
 function horizontalScrollModeOn() {
-  const scrollTop = viewportElement.scrollTop;
-  const translate = `translate3d(0px, -${scrollTop}px, 0px)`;
+  const scrollTop = -(viewportElement.scrollTop - 32);
+  const translate = `translate3d(0px, ${scrollTop}px, 0px)`;
   fixedContentElement.style.transform = translate;
   scrollableContentElement.style.transform = translate;
 
@@ -45,10 +48,13 @@ function horizontalScrollModeOn() {
 }
 
 function horizontalScrollModeOff() {
-  const scrollTop = Math.min(viewportElement.scrollTop, 600);
+  const scrollTop = Math.min(viewportElement.scrollTop, 632);
   const translate = `translate3d(0px, -${scrollTop}px, 0px)`;
   fixedContentElement.style.transform = translate;
   scrollableContentElement.style.transform = translate;
+  scrollableHeaderElement.style.transform = `translate3d(-${
+    scrollableCanvasElement.scrollLeft
+  }px, 0px, 0px)`;
   gridElement.classList.remove("scrolling-x");
   gridScrollingX = false;
   setButtonContent();
