@@ -15,7 +15,6 @@ const [
 
 let gridScrollingX = false;
 let viewportScrolling = false;
-let scrollTop = 0;
 
 const handleButton1Click = ev => {
   if (gridScrollingX) {
@@ -35,12 +34,21 @@ const handleButton2Click = ev => {
 };
 
 function horizontalScrollModeOn() {
+  const scrollTop = viewportElement.scrollTop;
+  const translate = `translate3d(0px, -${scrollTop}px, 0px)`;
+  fixedContentElement.style.transform = translate;
+  scrollableContentElement.style.transform = translate;
+
   gridElement.classList.add("scrolling-x");
   gridScrollingX = true;
   setButtonContent();
 }
 
 function horizontalScrollModeOff() {
+  const scrollTop = Math.min(viewportElement.scrollTop, 600);
+  const translate = `translate3d(0px, -${scrollTop}px, 0px)`;
+  fixedContentElement.style.transform = translate;
+  scrollableContentElement.style.transform = translate;
   gridElement.classList.remove("scrolling-x");
   gridScrollingX = false;
   setButtonContent();
@@ -48,7 +56,7 @@ function horizontalScrollModeOff() {
 
 function verticalScrollModeOn() {
   viewportElement.classList.add("scrolling");
-  const translate = `translate3d(0px,-${scrollTop}px, 0px)`;
+  const translate = `translate3d(0px,0px, 0px)`;
   scrollableContentElement.style.transform = translate;
   viewportScrolling = true;
   setButtonContent();
@@ -56,23 +64,19 @@ function verticalScrollModeOn() {
 
 function verticalScrollModeOff() {
   const scrollTop = viewportElement.scrollTop;
-  const translateFixed = `translate3d(0px, -${scrollTop}px, 0px)`;
-  fixedContentElement.style.transform = translateFixed;
-
-  // NO translate the offset back to scrollLeft
-  const translateScrolling = `translate3d(0px, -${scrollTop}px, 0px)`;
-
-  scrollableContentElement.style.transform = translateScrolling;
+  const translate = `translate3d(0px, -${scrollTop}px, 0px)`;
+  fixedContentElement.style.transform = translate;
+  scrollableContentElement.style.transform = translate;
   viewportElement.classList.remove("scrolling");
   viewportScrolling = false;
   setButtonContent();
 }
 
 const verticalScrollHandler = getScrollHandler(scrollEvent => {
-  scrollTop = scrollableCanvasElement.scrollTop;
   if (scrollEvent === "scroll-start") {
     verticalScrollModeOn();
   } else {
+    console.log(`position at scrollEnd ${viewportElement.scrollTop}`);
     verticalScrollModeOff();
   }
 });

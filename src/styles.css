@@ -9,16 +9,21 @@ body {
 .Grid {
   --content-bg: transparent;
   position: absolute;
-  top: 20px;
+  top: 50px;
   left: 20px;
   width: 800px;
   height: 600px;
   background-color: white;
 }
 
+.Header {
+  height: 32px;
+  background-color: burlywood;
+}
+
 .Viewport {
   position: absolute;
-  top: 0;
+  top: 32px;
   left: 0;
   bottom: 0;
   right: 0;
@@ -27,8 +32,13 @@ body {
   overflow-y: auto;
 }
 
+.Grid.scrolling-x > .Header {
+  display: none;
+}
+
 .Grid.scrolling-x .Viewport {
   overflow-y: hidden !important;
+  top: 0 !important;
 }
 
 .scrolling-canvas-container {
@@ -40,8 +50,12 @@ body {
   transform: translate3d(0, 0, 0);
 }
 
+.scrolling-x .scrolling-canvas-container {
+  height: 1232px;
+}
+
 .Canvas {
-  height: 600px;
+  height: 568px;
   display: inline-block;
   vertical-align: top;
   position: sticky;
@@ -55,6 +69,18 @@ body {
     rgba(0, 0, 0, 0.025)
   );
   background-size: 100% 50px; */
+}
+
+.Canvas .Header {
+  display: none;
+}
+
+.Grid.scrolling-x .Canvas {
+  height: 600px;
+}
+
+.Grid.scrolling-x .Canvas .Header {
+  display: block;
 }
 
 .scrolling.Viewport .Canvas {
@@ -74,8 +100,13 @@ body {
   overflow-y: hidden;
 }
 
+.Canvas.scrollable .Header {
+  width: 1270px;
+}
+
 .fixed .canvas-content-wrapper {
   width: 200px;
+  overflow: hidden;
 }
 
 .scrollable .canvas-content-wrapper {
