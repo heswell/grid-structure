@@ -10,21 +10,17 @@ body {
   position: absolute;
 }
 
-.header-container {
+.Header {
   white-space: nowrap;
   font-size: 0;
 }
 
-.header-container .Header {
+.Header .ColumnGroupHeader {
   display: inline-block;
+  height: 100%;
 }
 
-.scrollable.Header {
-  width: 1270px;
-}
-.scrolling-header-container {
-  height: 100%;
-  display: inline-block;
+.scrollable.ColumnGroupHeader {
   overflow: hidden;
 }
 
@@ -37,7 +33,7 @@ body {
   overflow-y: auto;
 }
 
-.Grid.scrolling-x > .header-container {
+.Grid.scrolling-x > .Header {
   display: none;
 }
 
@@ -64,7 +60,7 @@ body {
   top: 0;
 }
 
-.Canvas .Header {
+.Canvas .ColumnGroupHeader {
   display: none;
   position: absolute;
   top: 0;
@@ -74,7 +70,7 @@ body {
   height: 600px;
 }
 
-.Grid.scrolling-x .Canvas .Header {
+.Grid.scrolling-x .Canvas .ColumnGroupHeader {
   display: block;
 }
 
@@ -108,7 +104,9 @@ body {
   background-color: white;
 }
 
-.Header {
+.Canvas .ColumnGroupHeader,
+.ColumnGroupHeader.fixed,
+.header-cells {
   background-color: burlywood;
   background-image: linear-gradient(
       rgba(255, 255, 255, 02) 2px,
@@ -121,7 +119,7 @@ body {
   background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
 }
 
-.header-container {
+.Header {
   background-color: red;
 }
 

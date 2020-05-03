@@ -13,7 +13,7 @@ const [
   scrollableContentElement
 ] = document.querySelectorAll(".canvas-content");
 const scrollableHeaderElement = document.querySelector(
-  ".header-container .scrollable.Header"
+  ".Header .scrollable .header-cells"
 );
 
 let gridScrollingX = false;
