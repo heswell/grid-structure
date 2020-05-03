@@ -7,17 +7,10 @@ body {
 }
 
 .Grid {
-  --content-bg: transparent;
   position: absolute;
-  top: 50px;
-  left: 20px;
-  width: 800px;
-  height: 600px;
-  background-color: white;
 }
 
 .header-container {
-  height: 32px;
   white-space: nowrap;
   font-size: 0;
 }
@@ -26,44 +19,25 @@ body {
   display: inline-block;
 }
 
-.fixed.Header {
-  width: 200px;
-}
-
 .scrollable.Header {
   width: 1270px;
 }
 .scrolling-header-container {
-  width: 600px;
   height: 100%;
   display: inline-block;
   overflow: hidden;
 }
 
-.Header {
-  height: 32px;
-  background-color: burlywood;
-
-  background-image: linear-gradient(brown 2px, transparent 2px),
-    linear-gradient(90deg, brown 2px, transparent 2px),
-    linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
-  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
-  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
-}
-
 .Viewport {
   position: absolute;
-  top: 32px;
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: rgba(255, 0, 0, 0.1);
   overflow-x: hidden;
   overflow-y: auto;
 }
 
-.Grid.scrolling-x > .Header {
+.Grid.scrolling-x > .header-container {
   display: none;
 }
 
@@ -73,11 +47,8 @@ body {
 }
 
 .scrolling-canvas-container {
-  font-size: 0;
   height: 1200px;
-  width: 785px;
-  background-color: rgba(0, 0, 255, 0.1);
-  blue-space: nowrap;
+  white-space: nowrap;
   transform: translate3d(0, 0, 0);
 }
 
@@ -91,15 +62,6 @@ body {
   vertical-align: top;
   position: sticky;
   top: 0;
-
-  /* background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.05),
-    rgba(0, 0, 0, 0.05) 50%,
-    rgba(0, 0, 0, 0.025) 50%,
-    rgba(0, 0, 0, 0.025)
-  );
-  background-size: 100% 50px; */
 }
 
 .Canvas .Header {
@@ -121,44 +83,13 @@ body {
   height: 1200px;
 }
 
-.Canvas.fixed {
-  width: 200px;
-  background-color: rgba(0, 255, 0, 0.2);
-}
-
 .Canvas.scrollable {
-  width: 585px;
-  background-color: rgba(255, 0, 255, 0.1);
   overflow-x: auto;
   overflow-y: hidden;
 }
 
-.Canvas.fixed .Header {
-  width: 200px;
-}
-.Canvas.scrollable .Header {
-  width: 1270px;
-}
-
 .fixed .canvas-content-wrapper {
-  width: 200px;
   overflow: hidden;
-}
-
-.scrollable .canvas-content-wrapper {
-  width: 585px;
-}
-
-.fixed .canvas-content {
-  width: 200px;
-  height: 1200px;
-  background-color: var(--content-bg);
-  background-image: linear-gradient(white 2px, transparent 2px),
-    linear-gradient(90deg, white 2px, transparent 2px),
-    linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
-  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
-  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
 }
 
 .scrolling.Viewport .fixed.Canvas .canvas-content {
@@ -166,10 +97,52 @@ body {
 }
 
 .scrollable .canvas-content {
-  width: 1270px;
-  height: 1200px;
   position: relative;
+}
 
+/* Non essential */
+.Grid {
+  --content-bg: transparent;
+  top: 50px;
+  left: 20px;
+  background-color: white;
+}
+
+.Header {
+  background-color: burlywood;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 02) 2px,
+      transparent 2px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.2) 2px, transparent 2px),
+    linear-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
+
+.header-container {
+  background-color: red;
+}
+
+.Viewport {
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+.scrolling-canvas-container {
+  font-size: 0;
+  background-color: rgba(0, 0, 255, 0.1);
+}
+
+.Canvas.fixed {
+  background-color: rgba(0, 255, 0, 0.2);
+}
+
+.Canvas.scrollable {
+  background-color: rgba(255, 0, 255, 0.1);
+}
+
+.canvas-content {
   background-color: var(--content-bg);
   background-image: linear-gradient(white 2px, transparent 2px),
     linear-gradient(90deg, white 2px, transparent 2px),

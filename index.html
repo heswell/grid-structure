@@ -6,27 +6,33 @@
   </head>
 
   <body>
-    <div class="Grid">
-      <div class="header-container">
-        <div class="Header fixed"></div>
-        <div class="scrolling-header-container">
-          <div class="Header scrollable"></div>
+    <div class="Grid" style="width: 800px; height: 600px;">
+      <div class="header-container" style="height: 32px;">
+        <div class="Header fixed" style="width: 200px; height: 32px;"></div>
+        <div class="scrolling-header-container" style="width: 600px;">
+          <div class="Header scrollable" style="height: 32px;"></div>
         </div>
       </div>
 
-      <div class="Viewport">
+      <div class="Viewport" style="top: 32px;">
         <div class="scrolling-canvas-container">
-          <div class="Canvas fixed">
+          <div class="Canvas fixed" style="width: 200px;">
             <div class="canvas-content-wrapper">
-              <div class="canvas-content"></div>
+              <div
+                class="canvas-content"
+                style="width: 200px;height: 1200px;"
+              ></div>
             </div>
-            <div class="Header"></div>
+            <div class="Header" style="width: 200px;height: 32px;"></div>
           </div>
-          <div class="Canvas scrollable">
-            <div class="canvas-content-wrapper">
-              <div class="canvas-content"></div>
+          <div class="Canvas scrollable" style="width: 585px;">
+            <div class="canvas-content-wrapper" style="width: 200px;">
+              <div
+                class="canvas-content"
+                style="height: 1200px; width: 1270px;"
+              ></div>
             </div>
-            <div class="Header"></div>
+            <div class="Header" style="height: 32px; width: 1270px;"></div>
           </div>
         </div>
       </div>
